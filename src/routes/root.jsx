@@ -1,4 +1,6 @@
 import LoginButton from "../LoginButton";
+import LogoutButton from "../LogoutButton";
+import Profile from "../Profile";
 
 export default function Root() {
     return (
@@ -40,7 +42,9 @@ export default function Root() {
           </nav>
         </div>
             <div id="detail"></div>
-            <LoginButton/>
+            <Profile/>
+            <LoginButton />
+            <LogoutButton />
       </>
     );
   }
