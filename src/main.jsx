@@ -5,10 +5,14 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+import AuthenticationGuard from "./components/authenticationGuard";
 import ErrorPage from "./error-page";
 import FirstUser from "./FirstUser";
 import "./index.css";
 import Root from "./routes/root";
+import SecretPage from "./SecretPage";
+
+
 
 const router = createBrowserRouter([
   {
@@ -24,6 +28,10 @@ const router = createBrowserRouter([
   {
     path: "/newpath",
     element: <div>this is a new path!</div>
+  },
+  {
+    path: "/secret",
+    element: <AuthenticationGuard component={SecretPage}/>
   }
 ]);
 
