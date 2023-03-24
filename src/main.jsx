@@ -5,7 +5,7 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-import AuthenticationGuard from "./components/authenticationGuard";
+import AuthenticationGuard from "./components/AuthenticationGuard";
 import ErrorPage from "./error-page";
 import FirstUser from "./FirstUser";
 import "./index.css";
