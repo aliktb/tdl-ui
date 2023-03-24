@@ -38,6 +38,9 @@ export default function Root() {
               <li>
                 <a href={`/contacts/2`}>Your Friend</a>
               </li>
+              <li>
+                <a href={`/new-link`}>This is new!</a>
+              </li>
             </ul>
           </nav>
         </div>
