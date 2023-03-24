@@ -39,7 +39,7 @@ export default function Root() {
                 <a href={`/contacts/2`}>Your Friend</a>
               </li>
               <li>
-                <a href={`/new-link`}>This is new!</a>
+                <a href={`/newpath`}>New Path</a>
               </li>
             </ul>
           </nav>
