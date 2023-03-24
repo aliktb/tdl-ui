@@ -23,6 +23,8 @@ jobs:
       - name: branch-deploy
         id: branch-deploy
         uses: github/branch-deploy@v5.1.1
+        with:
+          environment: development # set default environment
 
         # If the branch-deploy Action was triggered, checkout our branch
       - name: Checkout
