@@ -5,7 +5,6 @@ import { Button } from "@chakra-ui/button";
 const LoginButton = () => {
   const { loginWithRedirect } = useAuth0();
 
-  // const { user, isAuthenticated, isLoading } = useAuth0();
 
 
   return (
@@ -18,7 +17,7 @@ const LoginButton = () => {
             colorScheme='blue'
             href={'#'}
             _hover={{
-              bg: 'pink.300',
+              bg: 'blue.600',
             }}
       onClick={() => loginWithRedirect()}>
       Sign In
