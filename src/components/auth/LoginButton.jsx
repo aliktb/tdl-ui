@@ -10,9 +10,16 @@ const LoginButton = () => {
 
   return (
     <Button
-      fontSize={'sm'}
-      fontWeight={400}
-      variant={'link'}
+            as={'a'}
+            display={{ base: 'none', md: 'inline-flex' }}
+            fontSize={'sm'}
+            fontWeight={600}
+            color={'white'}
+            colorScheme='blue'
+            href={'#'}
+            _hover={{
+              bg: 'pink.300',
+            }}
       onClick={() => loginWithRedirect()}>
       Sign In
     </Button >

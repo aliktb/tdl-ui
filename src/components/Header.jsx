@@ -20,8 +20,8 @@ import {
   ChevronDownIcon,
   ChevronRightIcon,
 } from '@chakra-ui/icons';
-import LoginButton from '../LoginButton';
-import LogoutButton from '../LogoutButton';
+import LoginButton from './auth/LoginButton';
+import LogoutButton from './auth/LogoutButton';
 import { useAuth0 } from '@auth0/auth0-react';
 
 
@@ -72,20 +72,6 @@ export default function WithSubnavigation() {
           direction={'row'}
           spacing={6}>
           {!isLoading && !isAuthenticated && <LoginButton />}
-          {/* sign up with this button */}
-          {/* <Button
-            as={'a'}
-            display={{ base: 'none', md: 'inline-flex' }}
-            fontSize={'sm'}
-            fontWeight={600}
-            color={'white'}
-            colorScheme='blue'
-            href={'#'}
-            _hover={{
-              bg: 'pink.300',
-            }}>
-            Sign Up
-          </Button> */}
 
           {isAuthenticated && <LogoutButton />}
 
