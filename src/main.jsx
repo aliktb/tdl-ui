@@ -28,23 +28,23 @@ const router = createBrowserRouter([
   {
     path:
       "/tasks",
-    element: <MyTasks />
+    element: <AuthenticationGuard component={MyTasks} />
   },
   {
     path: "/lists",
-    element: <MyLists />
+    element: <AuthenticationGuard component={MyLists} />
   },
   {
     path: '/calendar',
-    element: <Calendar />
+    element: <AuthenticationGuard component={Calendar} />
   },
   {
     path: '/profile',
-    element: <ProfileSettings />
+    element: <AuthenticationGuard component={ProfileSettings} />
   },
   {
     path: '/preferences',
-    element: <Preferences />
+    element: <AuthenticationGuard component={Preferences} />
   },
   {
     path: "/secret",
@@ -61,8 +61,9 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         authorizationParams={{
           redirect_uri: window.location.origin
         }}>
-        <Layout />
-        <RouterProvider router={router} />
+        <Layout>
+          <RouterProvider router={router} />
+        </Layout>
       </Auth0Provider>
     </ChakraProvider>
   </React.StrictMode>
