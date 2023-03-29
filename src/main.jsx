@@ -14,7 +14,7 @@ import MyLists from "./routes/MyLists";
 import MyTasks from "./routes/MyTasks";
 import Preferences from "./routes/Preferences";
 import ProfileSettings from "./routes/ProfileSettings";
-import Root from "./routes/root";
+import HomePage from "./routes/HomePage";
 import SecretPage from "./SecretPage";
 
 
@@ -22,7 +22,7 @@ import SecretPage from "./SecretPage";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Root />,
+    element: <HomePage />,
     errorElement: <ErrorPage />
   },
   {
