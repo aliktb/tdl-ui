@@ -40,6 +40,6 @@ jobs:
         # Deploy our branch to Railway
       - name: Deploy to Railway
         if: steps.branch-deploy.outputs.continue == 'true'
-        run: railway up
+        run: railway up -s tdl-ui
         env:
           RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
