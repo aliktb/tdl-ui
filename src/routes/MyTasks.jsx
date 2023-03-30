@@ -1,11 +1,13 @@
 import { Heading } from '@chakra-ui/react'
-import AxiosTest from "./AxiosTest";
+import UserTasks from "./UserTasks";
 
 const MyTasks = () => {
-  return (<>
+  return (
+    <>
     <Heading>This is my tasks</Heading>
-    <AxiosTest />
-  </>);
+    <UserTasks />
+    </>
+  );
 }
 
 export default MyTasks;
