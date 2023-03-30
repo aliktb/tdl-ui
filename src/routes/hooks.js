@@ -1,21 +1,32 @@
 import { useEffect, useState } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import axios from "axios";
-import { AUTH0_AUDIENCE, TDL_API_URL } from "../constants/paths";
+import { AUTH0_AUDIENCE, IS_PROD, TDL_API_URL } from "../constants/paths";
 
 export const useAxios = () => {
   const [axiosInstance, setAxiosInstance] = useState({});
-  const {getAccessTokenWithPopup , isLoading} = useAuth0();
+  const {getAccessTokenWithPopup , getAccessTokenSilently, isLoading} = useAuth0();
  
 
   useEffect(() => {
 
     const getToken = async () => {
-      const accessToken = await getAccessTokenWithPopup({
+
+      let accessToken;
+
+      if (IS_PROD) {
+        accessToken = await getAccessTokenSilently({
+          authorizationParams: {
+            audience: AUTH0_AUDIENCE,
+          },
+          });
+      } else {
+        accessToken = await getAccessTokenWithPopup({
         authorizationParams: {
           audience: AUTH0_AUDIENCE,
         },
-      });
+        });
+      }
 
 
       return accessToken;
