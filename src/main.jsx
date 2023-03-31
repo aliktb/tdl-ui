@@ -19,6 +19,9 @@ import SecretPage from "./SecretPage";
 import { AUTH0_AUDIENCE, AUTH0_CLIENT_ID, AUTH0_DOMAIN } from "./constants/paths";
 
 
+console.log(AUTH0_DOMAIN)
+console.log(AUTH0_CLIENT_ID)
+console.log(AUTH0_AUDIENCE)
 
 const router = createBrowserRouter([
   {
