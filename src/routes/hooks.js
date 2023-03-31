@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import axios from "axios";
-import { AUTH0_AUDIENCE, IS_PROD, TDL_API_URL } from "../constants/paths";
+import { AUTH0_AUDIENCE, IS_LOCAL, TDL_API_URL } from "../constants/paths";
 
 export const useAxios = () => {
   const [axiosInstance, setAxiosInstance] = useState({});
@@ -14,7 +14,7 @@ export const useAxios = () => {
 
       let accessToken;
 
-      if (IS_PROD) {
+      if (!IS_LOCAL) {
         accessToken = await getAccessTokenSilently({
           authorizationParams: {
             audience: AUTH0_AUDIENCE,
