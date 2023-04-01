@@ -17,8 +17,6 @@ const AddNewTask = () => {
 
     console.log('new task = ', newTask)
     axiosInstance.post(`/tasks/new`, newTask)
-    // console.log(dayjs().format())
-    // axiosInstance.get(`/tasks/user/abc`)
   }
 
   const dummyTask = {
@@ -26,7 +24,7 @@ const AddNewTask = () => {
     complete: true
   }
 
-  const isLight = useColorMode().colorMode==='light';//you can check what theme you are using right now however you want
+  const isLight = useColorMode().colorMode==='light';
 
 
   return (

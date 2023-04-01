@@ -47,10 +47,13 @@ const UserTasks = () => {
 
   return (
     <>
-      <Select defaultValue='desc' onChange={changeOrder}>
-        <option value='asc'>Latest due date</option>
-        <option value='desc'>Earliest due date</option>
-      </Select>
+      <Flex>
+      <Text>Sort by:&nbsp;</Text>
+      <Select defaultValue='asc' onChange={changeOrder}>
+        <option value='asc'>Earliest due date</option>
+        <option value='desc'>Latest due date</option>
+        </Select>
+        </Flex>
       {sortedTasks?.length &&
         sortedTasks.map((task) => {
           return (
