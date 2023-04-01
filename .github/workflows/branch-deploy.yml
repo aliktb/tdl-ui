@@ -13,7 +13,7 @@ permissions:
 jobs:
   deploy:
     name: deploy
-    if: ${{ github.event.issue.pull_request }} # only run on pull request comments
+    if: ${{ github.event.issue.pull_request }} || ${{ github.event.issue.pull_request.draft }} # only run on pull request or draft comments
     runs-on: ubuntu-latest
     environment: production-secrets # the locked down environment we pull secrets from
 

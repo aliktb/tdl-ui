@@ -14,15 +14,15 @@ import MyLists from "./routes/MyLists";
 import MyTasks from "./routes/MyTasks";
 import Preferences from "./routes/Preferences";
 import ProfileSettings from "./routes/ProfileSettings";
-import Root from "./routes/root";
+import HomePage from "./routes/HomePage";
 import SecretPage from "./SecretPage";
-
+import { AUTH0_AUDIENCE, AUTH0_CLIENT_ID, AUTH0_DOMAIN } from "./constants/paths";
 
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Root />,
+    element: <HomePage />,
     errorElement: <ErrorPage />
   },
   {
@@ -56,11 +56,11 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <ChakraProvider>
       <Auth0Provider
-        domain={import.meta.env.VITE_AUTH0_DOMAIN}
-        clientId={import.meta.env.VITE_AUTH0_CLIENT_ID}
+        domain={AUTH0_DOMAIN}
+        clientId={AUTH0_CLIENT_ID}
         authorizationParams={{
           redirect_uri: window.location.origin,
-          audience: import.meta.env.VITE_AUTH0_AUDIENCE
+          audience: AUTH0_AUDIENCE
         }}>
         <Layout>
           <RouterProvider router={router} />
