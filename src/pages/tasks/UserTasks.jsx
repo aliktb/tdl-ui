@@ -47,7 +47,7 @@ const UserTasks = () => {
 
   return (
     <>
-      <Flex>
+      <Flex className='sort-order'>
       <Text>Sort by:&nbsp;</Text>
       <Select defaultValue='asc' onChange={changeOrder}>
         <option value='asc'>Earliest due date</option>
@@ -59,7 +59,7 @@ const UserTasks = () => {
           return (
             <div key={task.id}>
               <Card m={3}>
-                <CardBody>
+                <CardBody className='task-card'>
                   <h3>{task.id}</h3>
                   <Flex>
 

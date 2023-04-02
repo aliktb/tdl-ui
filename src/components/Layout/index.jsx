@@ -1,3 +1,4 @@
+import { Container } from "@chakra-ui/react";
 import Footer from "../Footer";
 import Header from "../Header";
 
@@ -9,7 +10,9 @@ const Layout = ({ children }) => {
       <Header />
       <div id='page-container'>
         <div id="content-wrap">
-          {children}
+          <Container maxW='80ch'>
+            {children}
+          </Container>
         </div>
         <div id='footer'>
         <Footer />
