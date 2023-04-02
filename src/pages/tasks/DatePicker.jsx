@@ -10,7 +10,7 @@ export const DatePickerField = ({ ...props }) => {
     <DatePicker
       {...field}
       {...props}
-      dateFormat='dd/MM/yyyy'
+      dateFormat='dd/MM/yyyy HH:mm'
       showTimeSelect
       selected={(field.value && new Date(field.value)) || new Date()}
       onChange={val => {

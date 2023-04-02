@@ -24,12 +24,13 @@ import './datepicker.css';
 import { useAxios } from '../../utils/hooks';
 import { DatePickerField } from './DatePicker';
 
-const AddNewTask = () => {
+const AddNewTask = ({newTaskAdded}) => {
   const axiosInstance = useAxios();
   const { isOpen, onOpen, onClose } = useDisclosure();
 
-  const addTask = (newTask) => {
-    axiosInstance.post(`/tasks/new`, newTask);
+  const addTask = async (newTask) => {
+    await axiosInstance.post(`/tasks/new`, newTask);
+    newTaskAdded(newTask);
   };
 
   const submitFromModal = (values) => {

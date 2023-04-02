@@ -6,7 +6,7 @@ import { Card, CardBody, Checkbox, Flex, Select, Text } from '@chakra-ui/react';
 import { useAxios } from '../../utils/hooks';
 import './tasks.css';
 
-const UserTasks = () => {
+const UserTasks = ({hasTaskUpdated}) => {
   const [listOfTasks, setListOfTasks] = useState([]);
   const [sortedTasks, setSortedTasks] = useState([]);
   const [orderOfList, setOrderOfList] = useState('asc');
@@ -36,12 +36,12 @@ const UserTasks = () => {
 
     getUserMetadata();
 
-  }, [axiosInstance, setListOfTasks, setSortedTasks]);
+  }, [axiosInstance, setListOfTasks, setSortedTasks, hasTaskUpdated]);
 
 
   useEffect(() => {
     sortTasks(listOfTasks, orderOfList);
-  }, [listOfTasks, orderOfList]);
+  }, [listOfTasks, orderOfList, hasTaskUpdated]);
 
   const changeOrder = (e) => {setOrderOfList(e.target.value)}
 
