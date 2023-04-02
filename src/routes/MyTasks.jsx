@@ -6,8 +6,8 @@ const MyTasks = () => {
   return (
     <>
     <Heading>This is my tasks</Heading>
-      <UserTasks />
       <AddNewTask/>
+      <UserTasks />
     </>
   );
 }

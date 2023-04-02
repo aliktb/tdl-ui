@@ -60,12 +60,14 @@ const UserTasks = () => {
             <div key={task.id}>
               <Card m={3}>
                 <CardBody className='task-card'>
-                  <h3>{task.id}</h3>
+                  <h3>{task.taskTitle}</h3>
+                  <Text>
+                    {task.taskDescription}
+                  </Text>
                   <Flex>
-
                     <Text fontWeight={800}>Due on:&nbsp;</Text>
                     <Text>
-                      {dayjs(task.dueDate).format('HH:mm DD/MM/YYYY')}
+                      {dayjs(task.dueDate).format('DD/MM/YYYY HH:mm')}
                     </Text>
                   </Flex>
                   <Checkbox colorScheme="green" defaultChecked={task.complete}>
