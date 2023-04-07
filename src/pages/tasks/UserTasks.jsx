@@ -6,7 +6,7 @@ import { Card, CardBody, Checkbox, Flex, Select, Text } from '@chakra-ui/react';
 import { useAxios } from '../../utils/hooks';
 import './tasks.css';
 
-const UserTasks = () => {
+const UserTasks = ({hasTaskUpdated}) => {
   const [listOfTasks, setListOfTasks] = useState([]);
   const [sortedTasks, setSortedTasks] = useState([]);
   const [orderOfList, setOrderOfList] = useState('asc');
@@ -36,33 +36,38 @@ const UserTasks = () => {
 
     getUserMetadata();
 
-  }, [axiosInstance, setListOfTasks, setSortedTasks]);
+  }, [axiosInstance, setListOfTasks, setSortedTasks, hasTaskUpdated]);
 
 
   useEffect(() => {
     sortTasks(listOfTasks, orderOfList);
-  }, [listOfTasks, orderOfList]);
+  }, [listOfTasks, orderOfList, hasTaskUpdated]);
 
   const changeOrder = (e) => {setOrderOfList(e.target.value)}
 
   return (
     <>
-      <Select defaultValue='desc' onChange={changeOrder}>
-        <option value='asc'>Latest due date</option>
-        <option value='desc'>Earliest due date</option>
-      </Select>
+      <Flex className='sort-order'>
+      <Text>Sort by:&nbsp;</Text>
+      <Select defaultValue='asc' onChange={changeOrder}>
+        <option value='asc'>Earliest due date</option>
+        <option value='desc'>Latest due date</option>
+        </Select>
+        </Flex>
       {sortedTasks?.length &&
         sortedTasks.map((task) => {
           return (
             <div key={task.id}>
               <Card m={3}>
-                <CardBody>
-                  <h3>{task.id}</h3>
+                <CardBody className='task-card'>
+                  <h3>{task.taskTitle}</h3>
+                  <Text>
+                    {task.taskDescription}
+                  </Text>
                   <Flex>
-
                     <Text fontWeight={800}>Due on:&nbsp;</Text>
                     <Text>
-                      {dayjs(task.dueDate).format('HH:mm DD/MM/YYYY')}
+                      {dayjs(task.dueDate).format('DD/MM/YYYY HH:mm')}
                     </Text>
                   </Flex>
                   <Checkbox colorScheme="green" defaultChecked={task.complete}>
