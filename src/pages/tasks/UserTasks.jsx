@@ -38,6 +38,7 @@ const UserTasks = ({ hasTaskUpdated }) => {
   };
 
   const getUserMetadata = async () => {
+    console.log('test')
     if (axiosInstance) {
       try {
         const getTasksUrl = `/tasks/user`;
@@ -89,7 +90,7 @@ const UserTasks = ({ hasTaskUpdated }) => {
             <ModalHeader>Delete task</ModalHeader>
             <ModalCloseButton />
             <ModalBody>
-              Are you sure you want to delete {taskToDelete.taskTitle}?
+              Are you sure you want to delete {taskToDelete && taskToDelete.taskTitle}?
             </ModalBody>
             <ModalFooter>
               <Button onClick={deleteTask}>Yes</Button>
@@ -102,34 +103,34 @@ const UserTasks = ({ hasTaskUpdated }) => {
       </Flex>
       {sortedTasks?.length &&
         sortedTasks.map((task) => {
-          // return (
-          //   <div key={task.id}>
-          //     <Card m={3}>
-          //       <CardBody className="task-card">
-          //         <h3>{task.taskTitle}</h3>
-          //         <Text>{task.taskDescription}</Text>
-          //         <Flex>
-          //           <Text fontWeight={800}>Due on:&nbsp;</Text>
-          //           <Text>
-          //             {dayjs(task.dueDate).format('DD/MM/YYYY HH:mm')}
-          //           </Text>
-          //         </Flex>
-          //         <Checkbox colorScheme="green" defaultChecked={task.complete}>
-          //           done
-          //         </Checkbox>
-          //         <Button
-          //           variant="outline"
-          //           colorScheme="red"
-          //           onClick={() => {
-          //             openDeleteTaskModal(task);
-          //           }}
-          //         >
-          //           Delete
-          //         </Button>
-          //       </CardBody>
-          //     </Card>
-          //   </div>
-          // );
+          return (
+            <div key={task.id}>
+              <Card m={3}>
+                <CardBody className="task-card">
+                  <h3>{task.taskTitle}</h3>
+                  <Text>{task.taskDescription}</Text>
+                  <Flex>
+                    <Text fontWeight={800}>Due on:&nbsp;</Text>
+                    <Text>
+                      {dayjs(task.dueDate).format('DD/MM/YYYY HH:mm')}
+                    </Text>
+                  </Flex>
+                  <Checkbox colorScheme="green" defaultChecked={task.complete}>
+                    done
+                  </Checkbox>
+                  <Button
+                    variant="outline"
+                    colorScheme="red"
+                    onClick={() => {
+                      openDeleteTaskModal(task);
+                    }}
+                  >
+                    Delete
+                  </Button>
+                </CardBody>
+              </Card>
+            </div>
+          );
         })}
 
       {isAuthenticated && <h2>{user.email}</h2>}
