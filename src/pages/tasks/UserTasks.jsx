@@ -102,34 +102,34 @@ const UserTasks = ({ hasTaskUpdated }) => {
       </Flex>
       {sortedTasks?.length &&
         sortedTasks.map((task) => {
-          return (
-            <div key={task.id}>
-              <Card m={3}>
-                <CardBody className="task-card">
-                  <h3>{task.taskTitle}</h3>
-                  <Text>{task.taskDescription}</Text>
-                  <Flex>
-                    <Text fontWeight={800}>Due on:&nbsp;</Text>
-                    <Text>
-                      {dayjs(task.dueDate).format('DD/MM/YYYY HH:mm')}
-                    </Text>
-                  </Flex>
-                  <Checkbox colorScheme="green" defaultChecked={task.complete}>
-                    done
-                  </Checkbox>
-                  <Button
-                    variant="outline"
-                    colorScheme="red"
-                    onClick={() => {
-                      openDeleteTaskModal(task);
-                    }}
-                  >
-                    Delete
-                  </Button>
-                </CardBody>
-              </Card>
-            </div>
-          );
+          // return (
+          //   <div key={task.id}>
+          //     <Card m={3}>
+          //       <CardBody className="task-card">
+          //         <h3>{task.taskTitle}</h3>
+          //         <Text>{task.taskDescription}</Text>
+          //         <Flex>
+          //           <Text fontWeight={800}>Due on:&nbsp;</Text>
+          //           <Text>
+          //             {dayjs(task.dueDate).format('DD/MM/YYYY HH:mm')}
+          //           </Text>
+          //         </Flex>
+          //         <Checkbox colorScheme="green" defaultChecked={task.complete}>
+          //           done
+          //         </Checkbox>
+          //         <Button
+          //           variant="outline"
+          //           colorScheme="red"
+          //           onClick={() => {
+          //             openDeleteTaskModal(task);
+          //           }}
+          //         >
+          //           Delete
+          //         </Button>
+          //       </CardBody>
+          //     </Card>
+          //   </div>
+          // );
         })}
 
       {isAuthenticated && <h2>{user.email}</h2>}
