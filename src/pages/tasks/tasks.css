@@ -1,0 +1,16 @@
+.user-task-summary{
+
+  border-style: solid;
+  border-color: red;
+  border-width: 2px;
+  padding: 10px;
+  margin: 5px;
+}
+
+.sort-order{
+  margin: 12px;
+}
+
+.task-card{
+  background-color: #f5f9ff;
+}
