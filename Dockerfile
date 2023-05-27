@@ -1,7 +1,8 @@
 FROM node:18
 WORKDIR /app
 COPY package.json .
-RUN npm i
+COPY package-lock.json .
+RUN npm ci
 COPY . .
 ## EXPOSE [Port you mentioned in the vite.config file]
 EXPOSE 5173
